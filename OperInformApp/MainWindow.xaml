@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OperInformApp.ViewModel" 
+        xmlns:local="clr-namespace:OperInformApp.ViewModel"
         xmlns:filter="clr-namespace:DataGridFilterLibrary;assembly=DataGridFilterLibrary"
         mc:Ignorable="d"
         Icon="/Resources/search.png"
-        Title="OperInfoApp Фоос Ю.А." Height="600" Width="800">
+        Title="OperInfoApp Фоос Ю.А."
+        Height="600"
+        Width="800">
     <Window.Resources>
         <ObjectDataProvider x:Key="EmployeeData"></ObjectDataProvider>
     </Window.Resources>
@@ -16,18 +18,20 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="130"/>
-            <RowDefinition/>
-            <RowDefinition Height="3"/>
-            <RowDefinition Height="0.4*"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="130" />
+            <RowDefinition />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="0.4*" />
+            <RowDefinition Height="10" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" >
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="1.2*" />
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Grid.RowSpan="4" Margin="10">
+            <Grid Grid.Column="0"
+                  Grid.RowSpan="4"
+                  Margin="10">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
@@ -35,21 +39,53 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Row="0" Grid.Column="1" Margin="2" MaxHeight="25"
-                         Text="{Binding Path=OdbServerName, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Margin="2" MaxHeight="25"
-                          Text="{Binding Path=OdbInstanseName, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Margin="2" MaxHeight="25"
-                          Text="{Binding Path=OdbModelVersionId, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Grid.Row="0" Grid.Column="0" Margin="2"  Text="Имя сервера:" MaxHeight="25" HorizontalAlignment="Right"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="2"  Text="Имя БД:" MaxHeight="25" HorizontalAlignment="Right"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Margin="2"  Text="№ ИМ:" MaxHeight="25" HorizontalAlignment="Right"/>
-                <Button Content=" Подключение " Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" MaxWidth="100" MaxHeight="30" Command="{Binding ConnectCommand}" />
+                <TextBox Grid.Row="0"
+                         Grid.Column="1"
+                         Margin="2"
+                         MaxHeight="25"
+                         Text="{Binding Path=OdbServerName, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         Margin="2"
+                         MaxHeight="25"
+                         Text="{Binding Path=OdbInstanseName, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Row="2"
+                         Grid.Column="1"
+                         Margin="2"
+                         MaxHeight="25"
+                         Text="{Binding Path=OdbModelVersionId, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Margin="2"
+                           Text="Имя сервера:"
+                           MaxHeight="25"
+                           HorizontalAlignment="Right" />
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Margin="2"
+                           Text="Имя БД:"
+                           MaxHeight="25"
+                           HorizontalAlignment="Right" />
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Margin="2"
+                           Text="№ ИМ:"
+                           MaxHeight="25"
+                           HorizontalAlignment="Right" />
+                <Button Content=" Подключение "
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        MaxWidth="100"
+                        MaxHeight="30"
+                        Command="{Binding ConnectCommand}" />
             </Grid>
-            <Grid Grid.Column="1" Grid.RowSpan="4" Margin="10">
+            <Grid Grid.Column="1"
+                  Grid.RowSpan="4"
+                  Margin="10">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
@@ -57,16 +93,29 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
 
-                <TextBox Grid.Row="1" Grid.Column="1" Margin="2" MaxHeight="25"
-                         Text="{Binding Path=GuidObj, UpdateSourceTrigger=PropertyChanged}">                 
-                    
-                </TextBox>                
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="2"  Text="UID организации/формы" MaxHeight="25" HorizontalAlignment="Right"/>
-                <Button Content=" Загрузить данные " Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" MaxWidth="150" MaxHeight="30"                         
+                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         Margin="2"
+                         MaxHeight="25"
+                         Text="{Binding Path=GuidObj, UpdateSourceTrigger=PropertyChanged}">
+
+                </TextBox>
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Margin="2"
+                           Text="UID организации/формы"
+                           MaxHeight="25"
+                           HorizontalAlignment="Right" />
+                <Button Content=" Загрузить данные "
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        MaxWidth="150"
+                        MaxHeight="30"
                         Command="{Binding LoadDataCommandAsync}" />
             </Grid>
         </Grid>
@@ -74,38 +123,56 @@
             <TabItem Header="ОИ на формах">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
-                    <DataGrid x:Name="View" Grid.Row="0"                      
-                      ItemsSource="{Binding Path=ViewCollect,UpdateSourceTrigger=PropertyChanged }" 
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True"
-                      SelectedItem="{Binding Path=SelectedLink,UpdateSourceTrigger=PropertyChanged}"
-                      CurrentCell="{Binding CellInfo, Mode=OneWayToSource}"
-                      filter:DataGridExtensions.UseBackgroundWorkerForFiltering="True"   
+                    <DataGrid x:Name="View"
+                              Grid.Row="0"
+                              ItemsSource="{Binding Path=ViewCollect,UpdateSourceTrigger=PropertyChanged }"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              SelectedItem="{Binding Path=SelectedLink,UpdateSourceTrigger=PropertyChanged}"
+                              CurrentCell="{Binding CellInfo, Mode=OneWayToSource}"
+                              filter:DataGridExtensions.UseBackgroundWorkerForFiltering="True"
                               filter:DataGridExtensions.IsClearButtonVisible="True"
                               filter:DataGridExtensions.IsFilterVisible="{Binding Path=IsChecked, ElementName=ShowHideFilterCheckBox, Mode=TwoWay}"
-                              ColumnHeaderStyle="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type filter:DataGridHeaderFilterControl}, ResourceId=DataGridHeaderFilterControlStyle}}" >
+                              ColumnHeaderStyle="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type filter:DataGridHeaderFilterControl}, ResourceId=DataGridHeaderFilterControlStyle}}">
                         <DataGrid.Resources>
-                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#0078D4"/>
-                        </DataGrid.Resources>                        
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}"
+                                             Color="#0078D4" />
+                        </DataGrid.Resources>
                         <DataGrid.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Копировать Uid" Command="{Binding CopySelectedLink}"></MenuItem>
+                                <MenuItem Header="Копировать Uid"
+                                          Command="{Binding CopySelectedLink}"></MenuItem>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=NameForm}" Header="Форма"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path= UidForm}" Header="Uid формы"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path=ClassOI}" Header="Класс ОИ"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path=NameOI}" Header="Имя ОИ"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path=UidOI}" Header="UID ОИ"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path=TypeLinkStr}" Header="Тип ссылки"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path=Info}" Header="Инфо"  Width="2*" />
+                            <DataGridTextColumn Binding="{Binding Path=NameForm}"
+                                                Header="Форма"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path= UidForm}"
+                                                Header="Uid формы"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=ClassOI}"
+                                                Header="Класс ОИ"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=NameOI}"
+                                                Header="Имя ОИ"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=UidOI}"
+                                                Header="UID ОИ"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=TypeLinkStr}"
+                                                Header="Тип ссылки"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=Info}"
+                                                Header="Инфо"
+                                                Width="2*" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1">
                         <Label>Количество строк:</Label>
                         <Label  Content="{Binding ElementName=View, Path=Items.Count, UpdateSourceTrigger=PropertyChanged}"></Label>
                     </StackPanel>
@@ -114,53 +181,151 @@
             <TabItem Header="ОИ в формулах">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
-                    <DataGrid x:Name="Expression" Grid.Row="0"                      
-                      ItemsSource="{Binding Path=ExprCollect,UpdateSourceTrigger=PropertyChanged }" 
-                      AutoGenerateColumns="False"                     
+                    <DataGrid x:Name="Expression"
+                              Grid.Row="0"
+                              ItemsSource="{Binding Path=ExprCollect,UpdateSourceTrigger=PropertyChanged }"
+                              AutoGenerateColumns="False"
                               SelectedItem="{Binding Path=SelectedLink,UpdateSourceTrigger=PropertyChanged}"
-                      CurrentCell="{Binding CellInfo, Mode=OneWayToSource}"
-                      filter:DataGridExtensions.UseBackgroundWorkerForFiltering="True"   
+                              CurrentCell="{Binding CellInfo, Mode=OneWayToSource}"
+                              filter:DataGridExtensions.UseBackgroundWorkerForFiltering="True"
                               filter:DataGridExtensions.IsClearButtonVisible="True"
                               filter:DataGridExtensions.IsFilterVisible="{Binding Path=IsChecked, ElementName=ShowHideFilterCheckBox, Mode=TwoWay}"
-                              ColumnHeaderStyle="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type filter:DataGridHeaderFilterControl}, ResourceId=DataGridHeaderFilterControlStyle}}" >
+                              ColumnHeaderStyle="{StaticResource {ComponentResourceKey TypeInTargetAssembly={x:Type filter:DataGridHeaderFilterControl}, ResourceId=DataGridHeaderFilterControlStyle}}">
                         <DataGrid.Resources>
-                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#0078D4"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}"
+                                             Color="#0078D4" />
                         </DataGrid.Resources>
                         <DataGrid.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Копировать Uid" Command="{Binding CopySelectedLink}"></MenuItem>
+                                <MenuItem Header="Копировать Uid"
+                                          Command="{Binding CopySelectedLink}"></MenuItem>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=NameForm}" Header="Формула"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path= UidForm}" Header="Uid формулы"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path=ClassOI}" Header="Класс ОИ"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path=NameOI}" Header="Имя операнда"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path=UidOI}" Header="UID ОИ"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path=TypeLinkStr}" Header="Тип ссылки"  Width="*" />
-                            <DataGridTextColumn Binding="{Binding Path=Info}" Header="Инфо"  Width="2*" />
+                            <DataGridTextColumn Binding="{Binding Path=NameForm}"
+                                                Header="Формула"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path= UidForm}"
+                                                Header="Uid формулы"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=ClassOI}"
+                                                Header="Класс ОИ"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=NameOI}"
+                                                Header="Имя операнда"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=UidOI}"
+                                                Header="UID ОИ"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=TypeLinkStr}"
+                                                Header="Тип ссылки"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=Info}"
+                                                Header="Инфо"
+                                                Width="2*" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1">
                         <Label>Количество строк:</Label>
                         <Label  Content="{Binding ElementName=Expression, Path=Items.Count, UpdateSourceTrigger=PropertyChanged}"></Label>
                     </StackPanel>
                 </Grid>
             </TabItem>
+            <TabItem Header="Корректировка ссылок">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <!--<TextBlock Grid.Column="0">
+                               Text="Старый uid: "
+                               Margin="5"
+                               HorizontalAlignment="Right" />
+                    <TextBox Grid.Column="1"
+                             Margin="5"
+                             Text="{Binding Path=OldGuid, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Grid.Column="2"
+                               Text="Новый uid: "
+                               Margin="5"
+                               HorizontalAlignment="Right" />
+                    <TextBox Grid.Column="3"
+                             Margin="5"
+                             Text="{Binding Path=NewGuid, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button Grid.Column="4"
+                            Content="Добавить"
+                            Margin="5" 
+                            Command="{Binding AddCommand}"/-->
+                    <TextBlock Grid.Column="0"
+                               Grid.Row="1"
+                               Text="Файл: "
+                               Margin="5"
+                               HorizontalAlignment="Right" />
+                    <TextBlock Grid.Column="1"
+                               Grid.ColumnSpan="2"
+                               Grid.Row="1"
+                               Margin="5"
+                               Text="{Binding Path=Path, UpdateSourceTrigger=PropertyChanged}" />
+                    <Button Grid.Column="3"
+                            Grid.Row="1"
+                            Content="Выбрать файл"
+                            Margin="5" />
+                    <DataGrid Grid.Row="2"
+                              Grid.ColumnSpan="4"
+                              ItemsSource="{Binding Path=GuidCollect}"
+                              AutoGenerateColumns="False" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=OldGuid,UpdateSourceTrigger=PropertyChanged}"
+                                                Header="Старый uid"
+                                                Width="*" />
+                            <DataGridTextColumn Binding="{Binding Path=NewGuid,UpdateSourceTrigger=PropertyChanged}"
+                                                Header="Новый uid"
+                                                Width="*" />
+                            <DataGridTextColumn />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Column="4"
+                            Grid.Row="2"
+                            Content="Скорректировать ссылки"
+                            MaxHeight="30"
+                            Margin="5"
+                            Command="{Binding CorrectLinkCommand}"/>
+
+                </Grid>
+            </TabItem>
         </TabControl>
-        <GridSplitter Grid.Row="2"  Height="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-        <Grid Grid.Row="3" >
-            <Border BorderBrush="Gray" BorderThickness="1" Background="WhiteSmoke" >
+        <GridSplitter Grid.Row="2"
+                      Height="3"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center" />
+        <Grid Grid.Row="3">
+            <Border BorderBrush="Gray"
+                    BorderThickness="1"
+                    Background="WhiteSmoke">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <StackPanel Margin="5" Background="White">
-                        <TextBlock  Background="WhiteSmoke" Text="Протокол" Foreground="DimGray" FontWeight="Bold"/>
-                        <ListBox  BorderThickness="0" ItemsSource="{Binding Path=InfoCollect,UpdateSourceTrigger=PropertyChanged }">
+                    <StackPanel Margin="5"
+                                Background="White">
+                        <TextBlock  Background="WhiteSmoke"
+                                    Text="Протокол"
+                                    Foreground="DimGray"
+                                    FontWeight="Bold" />
+                        <ListBox  BorderThickness="0"
+                                  ItemsSource="{Binding Path=InfoCollect,UpdateSourceTrigger=PropertyChanged }">
                             <ListBox.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Очистить" Command="{Binding ClearInfoCollect}"/>
+                                    <MenuItem Header="Очистить"
+                                              Command="{Binding ClearInfoCollect}" />
                                 </ContextMenu>
                             </ListBox.ContextMenu>
                         </ListBox>
@@ -170,6 +335,8 @@
             </Border>
 
         </Grid>
-        <ProgressBar Grid.Row="4" Value="{Binding CurrentForm}" Maximum="{Binding FormsCount}"/>
+        <ProgressBar Grid.Row="4"
+                     Value="{Binding CurrentForm}"
+                     Maximum="{Binding FormsCount}" />
     </Grid>
 </Window>

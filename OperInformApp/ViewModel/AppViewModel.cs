@@ -45,6 +45,13 @@ namespace OperInformApp.ViewModel
             get => _formsCount;
             set { _formsCount = value; RaisePropertyChanged(); }
         }
+       
+        private string _path;
+        public string Path
+        {
+            get => _path;
+            set { _path = value; RaisePropertyChanged(); }
+        }
 
         private ObservableCollection<Link> _viewCollect = new ObservableCollection<Link>();
         public ObservableCollection<Link> ViewCollect
@@ -57,6 +64,13 @@ namespace OperInformApp.ViewModel
         {
             get { return _exprCollect; }
             set { _exprCollect = value; RaisePropertyChanged(); }
+        }
+
+        private ObservableCollection<TwoGuid> _guidsCollect = new ObservableCollection<TwoGuid>();
+        public ObservableCollection<TwoGuid> GuidCollect
+        {
+            get { return _guidsCollect; }
+            set { _guidsCollect = value; RaisePropertyChanged(); }
         }
 
         private int _index;
@@ -146,7 +160,6 @@ namespace OperInformApp.ViewModel
 
             foreach (DiogenDiagramCiM md in mdCollect)
             {
-
                 FormsCount = mdCollect.ToList().Count;
                 await Dispatcher.Yield(DispatcherPriority.ApplicationIdle);
                 try
@@ -170,6 +183,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedTimeCell(timeCell);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                     }
@@ -183,6 +197,7 @@ namespace OperInformApp.ViewModel
                             var links = check.CheckExpressions(expColold, "\r\nТаблица [" + index + "]");
                             foreach (var link in links)
                             {
+                                link.IndexElement = index;
                                 ViewCollect.Add(link);
                             }
                         }
@@ -202,6 +217,7 @@ namespace OperInformApp.ViewModel
                             var linksFormuls = check.CheckExpressions(expColold, "\r\nГрафик [" + index + "]");
                             foreach (var link in linksFormuls)
                             {
+                                link.IndexElement = index;
                                 ViewCollect.Add(link);
                             }
                         }
@@ -212,6 +228,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedObjButton(tButton);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                     }
@@ -221,6 +238,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedObjButton(hButton);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                     }
@@ -230,6 +248,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedObjIndicator(zIndicator);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                     }
@@ -239,6 +258,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedTableIndicator(tableIndicator);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                         if (tableIndicator.CustomData != null)
@@ -248,6 +268,7 @@ namespace OperInformApp.ViewModel
                             var linksFormuls = check.CheckExpressions(expColold, "\r\nИндикатор [" + index + "]");
                             foreach (var link in linksFormuls)
                             {
+                                link.IndexElement = index;
                                 ViewCollect.Add(link);
                             }
                         }
@@ -258,6 +279,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedIndicator(compIndicator);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                         if (compIndicator.CustomData != null)
@@ -267,6 +289,7 @@ namespace OperInformApp.ViewModel
                             var linksFormuls = check.CheckExpressions(expColold, "\r\nИндикатор[" + index + "]");
                             foreach (var link in linksFormuls)
                             {
+                                link.IndexElement = index;
                                 ViewCollect.Add(link);
                             }
                         }
@@ -277,6 +300,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedObjIndicator(cIndicator);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                     }
@@ -286,6 +310,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedObjIndicator(weathIndicator);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                     }
@@ -295,6 +320,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedArrowIndicator(aIndicator);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                         if (aIndicator.CustomData != null)
@@ -306,6 +332,7 @@ namespace OperInformApp.ViewModel
                                 var linksFormuls = check.CheckExpressions(expColold, "\r\nСтрелка [" + index + "]");
                                 foreach (var link in linksFormuls)
                                 {
+                                    link.IndexElement = index;
                                     ViewCollect.Add(link);
                                 }
                             }
@@ -327,6 +354,7 @@ namespace OperInformApp.ViewModel
                             var linksFormuls = check.CheckExpressions(expColold, "\r\nИндикатор [" + index + "]");
                             foreach (var link in linksFormuls)
                             {
+                                link.IndexElement = index;
                                 ViewCollect.Add(link);
                             }
                         }
@@ -337,6 +365,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedDevIndicator(linIndicator);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                     }
@@ -346,6 +375,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedDevIndicator(cirIndicator);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                     }
@@ -355,6 +385,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedIndicator(indicator);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                         if (indicator.CustomData != null)
@@ -366,6 +397,7 @@ namespace OperInformApp.ViewModel
                                 var linksFormuls = check.CheckExpressions(expColold, "\r\nИндикатор [" + index + "]");
                                 foreach (var link in linksFormuls)
                                 {
+                                    link.IndexElement = index;
                                     ViewCollect.Add(link);
                                 }
                             }
@@ -382,6 +414,7 @@ namespace OperInformApp.ViewModel
                         var links = check.CheckedIndicator(unIndicator);
                         foreach (var link in links)
                         {
+                            link.IndexElement = index;
                             ViewCollect.Add(link);
                         }
                         if (unIndicator.CustomData != null)
@@ -393,6 +426,7 @@ namespace OperInformApp.ViewModel
                                 var linksFormuls = check.CheckExpressions(expColold, "\r\nИндикатор [" + index + "]");
                                 foreach (var link in linksFormuls)
                                 {
+                                    link.IndexElement = index;
                                     ViewCollect.Add(link);
                                 }
                             }
@@ -424,6 +458,76 @@ namespace OperInformApp.ViewModel
 
         }
 
+
+        public ICommand CorrectLinkCommand { get { return new RelayCommand(CorrectLinkExecute, CanCorrectLink); } }
+        bool CanCorrectLink() { return GuidCollect.Count() != 0 && ExprCollect.Count() != 0 && ViewCollect.Count()!=0 ? true : false; }
+        void CorrectLinkExecute()
+		{   
+
+            foreach(var item in GuidCollect)
+			{
+                try
+				{
+                    var oldValue =(MeasurementValue) mImage.GetObject(item.OldGuid);
+                    var newValue = (MeasurementValue)mImage.GetObject(item.NewGuid);
+                    var views = ViewCollect.Where(x => x.UidOI == oldValue.Uid);
+                    var formulas = ExprCollect.Where(x => x.UidOI == oldValue.Uid);
+                    foreach(var view in views)
+					{
+                        var obj = mImage.GetObject(view.UidForm);
+                        if (obj is DiogenDiagramCiM md)
+						{
+                            CorrectLink corrector = new CorrectLink { MImage = mImage, NameForm = md.name, UidForm = md.Uid };
+                            DiogenControl DC1 = new DiogenControl();
+                            var DD1 = DC1.Diagram;
+                            try
+                            {
+                                DD1.LoadFrom(md.image);
+                            }
+                            catch (Exception bex)
+                            {
+                                Log("Ошибка в " + md.name + " Сообщение: " + bex.Message);
+                            }
+
+                            var element = DD1.ElementManager.Elements.Single(x => x.ZIndex == view.IndexElement);
+                            if (element is TimeCell timeCell)
+                            {
+                                //corrector.CorrectTimeCell(timeCell, newValue);
+                            }
+                            else if (element is TimeTable timeTable) { }
+                            else if (element is SimpleChartView chart) { }
+                            else if (element is TelecontrolButton tButton) { }
+                            else if (element is HandControlButton hButton) { }
+                            else if (element is ZVKInCell zIndicator) { }
+                            else if (element is TableIndicator tableIndicator) { }
+                            else if (element is CompositeIndicator compIndicator) { }
+                            else if (element is Clock cIndicator) { }
+                            else if (element is WeatherConditionIndicator weathIndicator) { }
+                            else if (element is ArrowIndicator aIndicator) { }
+                            else if (element is ComplexIndicator complIndicator) { }
+                            else if (element is LinearIndicator linIndicator) { }
+                            else if (element is CircularIndicator cirIndicator) { }
+                            else if (element is Indicator indicator) { }
+                            else if (element is UniversalIndicator unIndicator) { }
+
+
+                        }
+                        
+                    }
+                    foreach(var formula in formulas)
+					{
+
+					}
+                }
+                catch(Exception ex)
+				{
+                    Log("Ошибка поиска значения. Проверьте Uid");
+				}                
+                
+
+			}
+
+		}
         /// <summary>
         /// Подключение к ИМ
         /// </summary>
@@ -500,16 +604,20 @@ namespace OperInformApp.ViewModel
             }
             foreach (var psrOperand in psrOperands)
             {
+                if (psrOperand.Uid==new Guid("EF3472C1-F80F-4F88-B01E-81AFE324FC75"))
+				{
+                    var test = 0;
+				}
                 var PowerSystemResourceGuid = psrOperand.PowerSystemResource;
                 var MeasTypeGuid = psrOperand.MeasurementType;
-                var ValueTypeGuid = psrOperand.MeasurementType;
+                var ValueTypeGuid = psrOperand.MeasurementValueType;
                 var terminal = psrOperand.Terminal;
                 var phase = psrOperand.phases;
                 IndirectLinkMeas link = new IndirectLinkMeas
                 {
                     PowerSystemResourceGuid = psrOperand.PowerSystemResource.Uid,
                     MeasTypeGuid = psrOperand.MeasurementType.Uid,
-                    ValueTypeGuid = psrOperand.MeasurementType.Uid
+                    ValueTypeGuid = psrOperand.MeasurementValueType.Uid
                 };
                 if (psrOperand.phases != null)
                 {

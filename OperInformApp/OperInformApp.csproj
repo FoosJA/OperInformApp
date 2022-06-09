@@ -112,7 +112,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Foundation\CorrectLink.cs" />
     <Compile Include="Foundation\ElementsCheck.cs" />
+    <Compile Include="Model\TwoGuid.cs" />
     <Compile Include="ViewModel\AppViewModel.cs" />
     <Compile Include="ViewModel\AppViewModelBase.cs" />
     <Page Include="MainWindow.xaml">

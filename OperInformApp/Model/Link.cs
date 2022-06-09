@@ -51,6 +51,7 @@ namespace OperInformApp.Model
         /// Описание места привязки ОИ
         /// </summary>
         public string Info { get; set; }
+        public int IndexElement { get; set; }
 
         public enum LinkEnum
         {
