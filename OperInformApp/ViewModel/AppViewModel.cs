@@ -28,6 +28,7 @@ using DiogenDiagramCiM = Monitel.Mal.Context.CIM16.DiogenDiagram;
 using TableIndicator = Monitel.Diogen.Elements.Dashboards.TableIndicator;
 using System.Threading;
 using System.Windows.Threading;
+using Monitel.Diogen.Elements.Requests;
 
 namespace OperInformApp.ViewModel
 {

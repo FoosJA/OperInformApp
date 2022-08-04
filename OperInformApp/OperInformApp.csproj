@@ -70,6 +70,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Monitel\CK-11\Client\Monitel.Diogen.Elements.Indicators.dll</HintPath>
     </Reference>
+    <Reference Include="Monitel.Diogen.Elements.Requests">
+      <HintPath>..\..\..\Program Files\Monitel\CK-11\Client\Monitel.Diogen.Elements.Requests.dll</HintPath>
+    </Reference>
     <Reference Include="Monitel.Diogen.Elements.Tables, Version=1.4.48.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Monitel\CK-11\Client\Monitel.Diogen.Elements.Tables.dll</HintPath>

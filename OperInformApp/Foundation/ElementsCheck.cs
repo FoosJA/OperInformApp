@@ -20,6 +20,7 @@ using OperInformApp.Model;
 using LinkEnum = OperInformApp.Model.Link.LinkEnum;
 using static OperInformApp.ViewModel.AppViewModelBase;
 using TableIndicator = Monitel.Diogen.Elements.Dashboards.TableIndicator;
+using Monitel.Diogen.Elements.Requests;
 
 namespace OperInformApp.Foundation
 {
