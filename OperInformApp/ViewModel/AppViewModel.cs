@@ -493,9 +493,12 @@ namespace OperInformApp.ViewModel
                             var element = DD1.ElementManager.Elements.Single(x => x.ZIndex == view.IndexElement);
                             if (element is TimeCell timeCell)
                             {
-                                //corrector.CorrectTimeCell(timeCell, newValue);
+                                corrector.CorrectTimeCell(timeCell, newValue);
                             }
-                            else if (element is TimeTable timeTable) { }
+                            else if (element is TimeTable timeTable)
+                            { 
+                            
+                            }
                             else if (element is SimpleChartView chart) { }
                             else if (element is TelecontrolButton tButton) { }
                             else if (element is HandControlButton hButton) { }

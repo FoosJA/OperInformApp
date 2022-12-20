@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using static OperInformApp.ViewModel.AppViewModelBase;
 
 namespace OperInformApp.Foundation
@@ -18,7 +19,8 @@ namespace OperInformApp.Foundation
 		public ModelImage MImage { get; set; }
 		public Guid UidForm { get; set; }
 		public string NameForm { get; set; }
-		/*public ObservableCollection<Link> CorrectTimeCell(TimeCell timeCell, MeasurementValue mv)
+
+		public/* ObservableCollection<Link>*/ bool CorrectTimeCell(TimeCell timeCell, MeasurementValue mv)
 		{
 			string information = $"Ячейка ({timeCell.Row};{timeCell.Column}) [{timeCell.ZIndex}]";
 			if (timeCell.IsLinked)
@@ -35,11 +37,12 @@ namespace OperInformApp.Foundation
 					if (link.phase != null)
 						timeCell.PhaseCode = (MeasurementPhaseCode)link.phase;
 					MImage.CommitTransaction();
+                    return true;
 				}
 				catch (Exception ex)
 				{
 					MImage.RollbackTransaction();
-
+                    return false;
 				}
 				
 			}
@@ -47,11 +50,78 @@ namespace OperInformApp.Foundation
 			{
 				XElement expColold = new XElement("ExpressionCollection");
 				timeCell.CustomData.XLWrite(expColold);
-				LinkCollect.AddRange(CheckExpressions(expColold, information));
+				CorrectExpressions(expColold, mv);
+                return true;
 			}
-			return LinkCollect;
-		}*/
-		private static (Guid elementGuid, Guid measurementType, Guid measurementValueType, Guid measurementSource, PhaseCode? phase) GetIndirectLink(MeasurementValue mv)
+			return false;
+		}
+
+        public void CorrectExpressions(XElement expColold, MeasurementValue mv)
+        {
+            ObservableCollection<Link> LinkCollect = new ObservableCollection<Link>();
+            try
+            {
+                var exprList = expColold.Element("CustomData")
+                                                    .Element("Item")
+                                                    .Element("ExpressionCollection")
+                                                    .Elements("LExpression");
+                foreach (var exp in exprList)
+                {
+                    try
+                    {
+                        var allOperandsOld = exp.Element("Expression").Element("Operands").Elements("Operand");
+                        foreach (var operand in allOperandsOld)
+                        {
+                           // string info = $"Формула: { exp.Attribute("name")} Операнд: {operand.Attribute("Name")} {information}";
+                            if (operand.Attribute("Type").Value == "MeasValueOperand")
+                            {
+                                try
+                                {
+                                    MImage.BeginTransaction();
+                                    operand.Element("MeasurementValue").Value = mv.Uid.ToString();                                    
+                                    MImage.CommitTransaction();
+
+                                }
+                                catch
+                                {
+                                    MImage.RollbackTransaction();
+                                }
+                            }
+                            else if (operand.Attribute("Type").Value == "PSRMeasOperand")
+                            {
+								try
+								{
+									MImage.BeginTransaction();
+									var link = GetIndirectLink(mv);
+									MImage.BeginTransaction();
+									operand.Element("PowerSystemResource").Value = link.elementGuid.ToString();
+									operand.Element("MeasurementType").Value = link.measurementType.ToString();
+									operand.Element("ValueType").Value = link.measurementValueType.ToString();
+									if (link.measurementSource != Guid.Empty)
+										operand.Element("MeasurementValueSource").Value = link.measurementSource.ToString();
+									if (link.phase != null)
+										operand.Element("SpecifiedPhaseCode").Value = link.phase.Value.ToString();
+									//operand.Element("SpecifiedTerminal").Value 
+									MImage.CommitTransaction();
+								}
+								catch
+								{
+									MImage.RollbackTransaction();
+								}	
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        
+                    }
+                }
+            }
+            catch (NullReferenceException) { }
+
+            
+        }
+        private static (Guid elementGuid, Guid measurementType, Guid measurementValueType, Guid measurementSource, PhaseCode? phase) GetIndirectLink(MeasurementValue mv)
 		{
 			Guid elementGuid;
 			Guid measurementType;
